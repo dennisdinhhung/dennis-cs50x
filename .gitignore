@@ -9,5 +9,11 @@
 /hello.dSYM
 /test
 
-.dSYM
-.plist
+
+pset1/credit/credit.dSYM/Contents/Info.plist
+.gitignore
+pset1/.DS_Store
+.DS_Store
+pset3/tideman/tideman.dSYM/Contents/Info.plist
+pset3/plurality/plurality.dSYM/Contents/Info.plist
+pset1/hello/hello.dSYM/Contents/Info.plist
