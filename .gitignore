@@ -8,3 +8,6 @@
 /test.dSYM
 /hello.dSYM
 /test
+
+.dSYM
+.plist
