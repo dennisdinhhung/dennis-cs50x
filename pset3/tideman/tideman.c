@@ -34,6 +34,10 @@ void sort_pairs(void);
 void lock_pairs(void);
 void print_winner(void);
 
+// Extra function
+int loop_check(int loser);
+
+// Main
 int main(int argc, string argv[])
 {
     // Check for invalid usage
@@ -100,10 +104,10 @@ int main(int argc, string argv[])
 // Update ranks given a new vote
 bool vote(int rank, string name, int ranks[])
 {
-    // TODO -> DONE
+    // TODO -> Done (have to update the ranks[i] to the ith's pref which is also the value of rank that was determined by the voter)
     for (int i=0; i<candidate_count; i++){
         if(strcmp(name, candidates[i]) == 0){
-            ranks[i] = rank;//insert rank here
+            ranks[rank] = i;//insert rank here
             return true;
         }
     }
@@ -113,7 +117,7 @@ bool vote(int rank, string name, int ranks[])
 // Update preferences given one voter's ranks
 void record_preferences(int ranks[])
 {
-    // TODO -> DONE
+    // TODO -> Done (no need to fix, this was correct from the start :) )
     for (int i=0; i<candidate_count; i++){
         for (int j = i+1; j < candidate_count; j++)
         {
@@ -191,8 +195,27 @@ void sort_pairs(void)
 void lock_pairs(void)
 {
     // TODO
+    
+    for (int i = 0; i < pair_count; i++){
+        // lock in the first pair in the pairs array
+        int x = pairs[i].winner;
+        int y = pairs[i].loser;
+        
+        if (loop_check(y) != x){
+            locked[x][y] = true;
+        }
+    }
 
     return;
+}
+
+int loop_check(loser){//recursion function
+    for (int i = 0; i < candidate_count; i++){
+        if (locked[loser][i]){
+            return loop_check(i);
+        }
+    }
+    return loser;
 }
 
 // Print the winner of the election
