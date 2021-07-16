@@ -222,6 +222,25 @@ int loop_check(loser){//recursion function
 void print_winner(void)
 {
     // TODO
+    int counter[candidate_count];
+
+    for (int i = 0; i < candidate_count; i++){
+        counter[i] = 0;
+    }
+
+    for (int i = 0; i < candidate_count; i++){
+        for (int j = 0; j < candidate_count;j++){
+            if (locked[i][j]){
+                counter[j]++;
+            }
+        }
+    }
+
+    for (int i = 0; i < candidate_count; i++){
+        if (counter[i] == 0){
+            printf("%s\n", candidates[i]);
+        }
+    }
     return;
 }
 
