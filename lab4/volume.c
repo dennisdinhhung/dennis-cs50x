@@ -17,7 +17,6 @@ int main(int argc, char *argv[])
     }
 
     // Open files and determine scaling factor
-    printf("%s", argv[1]);
     FILE *input = fopen(argv[1], "r");
     if (input == NULL)
     {
@@ -34,24 +33,28 @@ int main(int argc, char *argv[])
 
     float factor = atof(argv[3]); // convert a double into a float
 
-    // TODO: Copy header from input file to output file
+    // TODO: Copy header from input file to output file -> DONE
     
     // header (unsigned, 8 bits)
     uint8_t header[HEADER_SIZE];
+    int test = sizeof(header);
 
     //fread to read the first 44 bytes from input
-    fread(header, sizeof(HEADER_SIZE), 1, input);
+    fread(header, sizeof(header), 1, input);
 
     //fwrite to write the bytes to output
-    fwrite(header, sizeof(HEADER_SIZE), 1, output);
-        
-    // use fwrite to write said 44 bytes to the new output file
+    fwrite(header, sizeof(header), 1, output);
     
     //buffer (signed, 16 bits)
     int16_t buffer;
     
     // TODO: Read samples from input file and write updated data to output file
 
+    // reading 1 byte at a time and 
+    while (fread(&buffer, sizeof(buffer), 1, input)){
+        buffer = buffer*factor;
+        fwrite(&buffer, sizeof(buffer), 1, output);
+    }
     // Close files
     fclose(input);
     fclose(output);
