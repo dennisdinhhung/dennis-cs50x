@@ -35,7 +35,7 @@ void lock_pairs(void);
 void print_winner(void);
 
 // Extra function
-int loop_check(int loser);
+int loop_check(int checker, int pivot);
 
 // Main
 int main(int argc, string argv[])
@@ -201,21 +201,28 @@ void lock_pairs(void)
         int x = pairs[i].winner;
         int y = pairs[i].loser;
         
-        if (loop_check(y) != x){
-            locked[x][y] = true;
+        
+        if (loop_check(y,x)){ // using x as the pivot point, y as the checker against the pivot
+            locked[x][y] = true; // locking the pair if the loop_check is true
         }
     }
 
     return;
 }
 
-int loop_check(loser){//recursion function
-    for (int i = 0; i < candidate_count; i++){
-        if (locked[loser][i]){
-            return loop_check(i);
+int loop_check(checker,pivot){//recursion function
+    for (int i = 0; i < candidate_count; i++){ // count from 0 to check if there are any locked pair that exists
+        if (locked[checker][i]){
+            if(!loop_check(i,pivot)){ // enter into said pair and find the next locked pairs in the loop 
+                return false; // in case the base case return false, other iteration will also return false
+            }
         }
     }
-    return loser;
+
+    if (checker == pivot){
+        return false;
+    }
+    else return true;
 }
 
 // Print the winner of the election
@@ -225,7 +232,7 @@ void print_winner(void)
     int counter[candidate_count];
 
     for (int i = 0; i < candidate_count; i++){
-        counter[i] = 0;
+        counter[i] = 0; // run over the counter array and set all to 0
     }
 
     for (int i = 0; i < candidate_count; i++){
@@ -243,4 +250,3 @@ void print_winner(void)
     }
     return;
 }
-
