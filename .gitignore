@@ -29,3 +29,5 @@ lab4/output.wav
 pset4/filter/out.bmp
 
 !Makefile
+pset4/filter/filter.dSYM/Contents/Info.plist
+pset4/filter/edge.bmp
