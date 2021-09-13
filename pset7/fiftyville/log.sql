@@ -1,5 +1,3 @@
-the mystery.
-
 SELECT * FROM crime_scene_reports WHERE street = "Chamberlin Street";
     --Output: 
     --295|2020|7|28|Chamberlin Street|Theft of the CS50 duck took place at 10:15am at the Chamberlin Street courthouse. 
