@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+
+        <script>
+
+            // TODO: Add code to check answers to questions
+            document.addEventListener('DOMContentLoaded', function(){
+                let right = document.querySelector('.right');
+                right.addEventListener('click', function(){
+                    right.style.backgroundColor = 'lightgreen';
+                    document.querySelector('.output1').innerHTML = 'Correct';
+                });
+
+                let wrong = document.querySelectorAll('.wrong');
+                for (let i = 0; i < wrong.length; i++){
+                    wrong[i].addEventListener('click', function(){
+                        wrong[i].style.backgroundColor = "red";
+                        document.querySelector('.output1').innerHTML = 'Incorrect';
+                    })
+                }
+
+                // Second part
+                let answer = document.querySelector('.answer');
+                document.querySelector('.submit').addEventListener('click', function(){
+                    if (answer.value == 'Steve Jobs'){
+                        answer.style.backgroundColor = "lightgreen";
+                        document.querySelector('.output2').innerHTML = 'Correct';
+                    }
+                    else{
+                        answer.style.backgroundColor = "red";
+                        document.querySelector('.output2').innerHTML = 'Incorrect';
+                    }
+                })
+            });
+            
+        </script>
+
+    </head>
+    <body>
+
+        <div class="jumbotron">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+
+                <!-- TODO: Add multiple choice question here -->
+                <h3>What is the original name of the novel written by Phillip K.Dick that insipred the movie "Blade Runner"?</h3>
+                
+                <button class="wrong">Blade Runner</button>
+                <button class="wrong">Neuromancer</button>
+                <button class="right">Do androids dream of electric sheep?</button>
+                
+                <p class="output1"></p> 
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+
+                <!-- TODO: Add free response question here -->
+                <h3>What is the name of Apple's past CEO?</h3>
+                <input class="answer" type="text"><button class="submit">Submit</button>
+
+                <p class="output2"></p>
+            </div>
+
+        </div>
+    </body>
+</html>
