@@ -1,0 +1,123 @@
+/* TODO: Have at least one stylesheet file of your own creation, 
+styles.css, which uses at least five (5) different CSS selectors 
+(e.g. tag (example), class (.example), or ID (#example)), and within 
+which you use a total of at least five (5) different CSS properties, 
+such as font-size, or margin; */
+
+body{
+    background-color: #141617;
+    color: white;
+}
+
+pre{
+    color: white;
+    font-size: large;
+}
+
+.header{
+    background-color: black;
+    padding: 20px;
+
+}
+
+.container1{
+    height: 100px;
+    width: 900px;
+    align-items: center;
+    margin: auto;
+}
+
+.cs50{
+    color: grey;
+    font-weight: bold;
+}
+
+.cs50:hover{
+    color: white;
+}
+
+.title{
+    /* Font attributes */
+    font: Arial;
+    font-style: bold;
+    font-size: 45px;
+    color: white;
+    text-align: center;
+}
+
+.maker{
+    font: Arial;
+    color: white;
+    text-align: right;
+}
+
+.body{
+    width: 900px;
+    margin: auto;
+}
+
+#alert{
+    margin: 20px 0px 10px 0px;
+}
+
+.part{
+    border-bottom: grey;
+    border-bottom-style: solid;
+    border-bottom-width: thin;
+    padding-bottom: 10px;
+    padding-top: 30px;
+}
+
+.question{
+    color: white;
+    font-size: 20px;
+    text-align: center;
+
+    padding-top: 20px;
+}
+
+.input_name{
+    width: 400px;
+    border-style: solid;
+    border-color: white;
+    border-radius: 3px;
+}
+
+.div_input_name{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    
+}
+
+.submit_name{
+    border-style: none;
+    border: white 1px;
+    font-style: bold;
+    width: 70px;
+    height: 40px;
+    border-radius: 3px;
+}   
+
+.filler{
+    color: white;
+}
+
+.div_filler{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.video{
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.btn-group{
+    display: flex;
+    justify-content: center;
+}
