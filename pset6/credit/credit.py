@@ -13,7 +13,7 @@ def main():
     # check if the length of input number is valid, if not request the number again
     while len(str_number) not in digit_count:
         print("INVALID")
-        return 1;
+        return 1
     
     digit = []
     temp_number =  number
