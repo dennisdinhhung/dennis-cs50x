@@ -55,6 +55,14 @@ button, input[type="submit"] {
     vertical-align: middle;
 }
 
+button, input[type="submit"]:hover{
+    background-color: #b9cbda;
+}
+
+button, input[type="submit"]:active{
+    background-color: #d9e5ff;
+}
+
 input[type="text"], input[type="number"] {
     line-height: 1.8;
     width: 25%;
@@ -81,3 +89,10 @@ tbody tr:nth-of-type(odd) {
     background-color: rgb(179, 208, 255, 0.3)
 }
 
+button:hover{
+    background-color: #b9cbda;
+}
+
+button:active{
+    background-color: #d9e5ff;
+}

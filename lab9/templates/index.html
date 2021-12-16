@@ -15,6 +15,17 @@
 
                 <h2>Add a Birthday</h2>
                 <!-- TODO: Create a form for users to submit a name, a month, and a day -->
+
+                <form action="/" method="post">
+
+                    <input type="text" autocomplete="off" name="name" placeholder="Name">
+                    <input type="number" autocomplete="off" name="date" placeholder="Date" min="1" max="31">
+                    <input type="number" autocomplete="off" name="month" placeholder="Month" min="1" max="12">
+
+                    <input type="submit">
+                </form>
+
+                {{error_message}}
             </div>
 
             <div class="section">
@@ -25,10 +36,24 @@
                         <tr>
                             <th>Name</th>
                             <th>Birthday</th>
+                            <th>Tools</th>
                         </tr>
                     </thead>
                     <tbody>
                         <!-- TODO: Loop through the database entries to display them in this table -->
+                        
+                        {% for person in data %}
+
+                            <tr>
+                                <td>{{ person.name }}</td>
+                                <td>{{person.day}}/{{person.month}}</td>
+                                <td>
+                                    <a href="/delete/{{person.id}}"><button>Delete</button></a>
+                                </td>
+                            </tr>
+
+                        {% endfor %}
+
                     </tbody>
                 </table>
             </div>
