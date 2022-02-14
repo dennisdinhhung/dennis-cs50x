@@ -1,0 +1,27 @@
+{% extends 'layout.html'%}
+
+{%block title%}
+    History
+{%endblock%}
+{% block main%}
+<table>
+    <thead>
+        <th>Symbol</th>
+        <th>Number</th>
+        <th>Action</th>
+        <th>Date</th>
+        <th>Time</th>
+    </thead>
+    <tbody>
+        {% for row in history %}
+        <tr>    
+            <td>{{row.symbol}}</td>
+            <td>{{row.stock_num}}</td>
+            <td>{{row.user_action}}</td>
+            <td>{{row.day}}/{{row.month}}/{{row.year}}</td>
+            <td>{{row.hour}}:{{row.minutes}}</td>
+        </tr>
+        {% endfor%}
+    </tbody>
+</table>
+{%endblock%}
